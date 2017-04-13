@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! -z ${HTTP_BASIC_PASSWORD+x} ]; then
+  htpasswd -bc /etc/nginx/.htpasswd $HTTP_BASIC_USER $HTTP_BASIC_PASSWORD
+  echo """
+    auth_basic "Private";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+  """ > /etc/nginx/conf.d/auth.conf
+fi
+
+nginx -g "daemon off;"
