@@ -8,9 +8,11 @@ Features:
 - Static files served directly by nginx
 - Optional HTTP Basic authentication
 
+
 ## Image details
 
-Images are hosted publically on Docker Hub as `parachute/nginx-rails`.
+Images are hosted publicly on Docker Hub as `parachute/nginx-rails`.
+
 
 ## Usage
 
@@ -37,9 +39,10 @@ docker run -d --network=my_network --name=app my_rails_app:latest
 docker run -d --network=my_network --volumes-from app:ro -P parachute/nginx-rails
 ```
 
-## HTTP Basic Auth
 
-HTTP Basic Auth can be enabled for all requests by setting `HTTP_BASIC_USER` & `HTTP_BASIC_PASSWORD` environment variables when you run the container.
+## HTTP Basic Authentication
+
+HTTP Basic Authentication credentials can be set using the `HTTP_BASIC_USER` & `HTTP_BASIC_PASSWORD` environment variables. Authentication will be enabled if `HTTP_BASIC_USER` is non-empty.
 
 ### Example
 

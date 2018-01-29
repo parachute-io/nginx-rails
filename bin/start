@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -z ${HTTP_BASIC_PASSWORD+x} ]; then
+if [ ! -z "${HTTP_BASIC_USER}" ]; then
   htpasswd -bc /etc/nginx/.htpasswd $HTTP_BASIC_USER $HTTP_BASIC_PASSWORD
   echo """
     auth_basic "Private";
